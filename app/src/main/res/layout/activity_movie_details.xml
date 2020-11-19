@@ -10,7 +10,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
+<!--
+Not the best solution. The image stretches out without saving dimension ratio.
+* Try to move views from Linear to Constraint.
+* Implement background image as ImageView, not as a background.
+* The image in Figma has a gradient (interesting case, try to implement it).
+* The "<" symbol in Figma is an image (maybe implement this View as compound drawable?)
+-->
         <LinearLayout
             android:id="@+id/ll_top"
             android:layout_width="match_parent"
@@ -70,8 +76,8 @@
             android:id="@+id/tv_tag"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
             android:layout_marginEnd="16dp"
             android:text="@string/tag"
             android:textColor="@color/tag_red"
@@ -221,6 +227,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Barrier_Four_Middle" />
 
+            <!--
+            Images need to be scaling depending on the orientation. Let's try to implement it.
+            -->
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_movie1"
             android:layout_width="wrap_content"
