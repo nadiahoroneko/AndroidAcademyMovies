@@ -10,8 +10,63 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <!--
+        Not the best solution. The image stretches out without saving dimension ratio.
+        * Try to move views from Linear to Constraint.
+        * Implement background image as ImageView, not as a background.
+        * The image in Figma has a gradient (interesting case, try to implement it).
+        * The "<" symbol in Figma is an image (maybe implement this View as compound drawable?)
+        -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toTopOf="@+id/Barrier_First_Top"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+        <ImageView
+            android:id="@+id/iv_orig"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/orig_gradient"
+            android:scaleType="centerCrop"
+            android:src="@drawable/orig" />
+        <View
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:background="@drawable/orig_gradient"/>
+        </FrameLayout>
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/tv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="56dp"
+            android:text="@string/back"
+            app:drawableLeftCompat="@drawable/ic_path"
+            android:drawablePadding="8dp"
+            android:textColor="@color/back_font"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_pg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="12dp"
+            android:layout_weight="2"
+            android:gravity="bottom"
+            android:text="@string/pg"
+            android:textColor="@color/white_font"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/Barrier_First_Top"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    <!--    <LinearLayout
             android:id="@+id/ll_top"
             android:layout_width="match_parent"
             android:layout_height="298dp"
@@ -45,7 +100,7 @@
                 android:textColor="@color/white_font"
                 android:textSize="14sp"
                 android:textStyle="bold" />
-        </LinearLayout>
+        </LinearLayout>-->
 
         <androidx.constraintlayout.widget.Barrier
             android:id="@+id/Barrier_First_Top"
@@ -220,12 +275,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/Barrier_Four_Middle" />
-
+        <!--
+        Images need to be scaling depending on the orientation. Let's try to implement it.
+        -->
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_movie1"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:adjustViewBounds="true"
             app:layout_constraintEnd_toStartOf="@+id/iv_movie2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_cast"
@@ -234,9 +293,11 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_movie2"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:adjustViewBounds="true"
             app:layout_constraintEnd_toStartOf="@+id/iv_movie3"
             app:layout_constraintStart_toEndOf="@+id/iv_movie1"
             app:layout_constraintTop_toBottomOf="@+id/tv_cast"
@@ -245,9 +306,11 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_movie3"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:adjustViewBounds="true"
             app:layout_constraintEnd_toStartOf="@+id/iv_movie4"
             app:layout_constraintStart_toEndOf="@+id/iv_movie2"
             app:layout_constraintTop_toBottomOf="@+id/tv_cast"
@@ -256,11 +319,13 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_movie4"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:adjustViewBounds="true"
             app:layout_constraintEnd_toEndOf="parent"
-
             app:layout_constraintStart_toEndOf="@+id/iv_movie3"
             app:layout_constraintTop_toBottomOf="@+id/tv_cast"
             app:shapeAppearanceOverlay="@style/circleImageView"
