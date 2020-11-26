@@ -17,25 +17,25 @@
         * The image in Figma has a gradient (interesting case, try to implement it).
         * The "<" symbol in Figma is an image (maybe implement this View as compound drawable?)
         -->
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintBottom_toTopOf="@+id/Barrier_First_Top"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+
         <ImageView
             android:id="@+id/iv_orig"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/orig_gradient"
             android:scaleType="centerCrop"
-            android:src="@drawable/orig" />
+            android:src="@drawable/orig"
+            app:layout_constraintBottom_toTopOf="@+id/Barrier_First_Top"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
         <View
-            android:layout_height="match_parent"
-            android:layout_width="match_parent"
-            android:background="@drawable/orig_gradient"/>
-        </FrameLayout>
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/orig_gradient"
+            app:layout_constraintBottom_toTopOf="@+id/Barrier_First_Top"
+            app:layout_constraintDimensionRatio="3:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/tv_back"
