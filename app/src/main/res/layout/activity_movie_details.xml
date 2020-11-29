@@ -17,12 +17,13 @@
         * The image in Figma has a gradient (interesting case, try to implement it).
         * The "<" symbol in Figma is an image (maybe implement this View as compound drawable?)
         -->
+        <!--  android:scaleType="centerCrop" -->
 
         <ImageView
             android:id="@+id/iv_orig"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
             android:src="@drawable/orig"
             app:layout_constraintBottom_toTopOf="@+id/Barrier_First_Top"
             app:layout_constraintEnd_toEndOf="parent"
