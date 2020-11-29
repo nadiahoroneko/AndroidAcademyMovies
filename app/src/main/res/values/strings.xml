@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">AndroidAcademyMovies</string>
     <string name="after_the_d">After the devastating events of Avengers: Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos\' actions and restore balance to the universe.</string>
-    <string name="back"><![CDATA[< Back]]></string>
+    <string name="back">Back</string>
     <string name="pg">+13</string>
     <string name="avengers_end_game">Avengers: End Game</string>
     <string name="tag">Action, Adventure, Fantasy</string>
