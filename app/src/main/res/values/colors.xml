@@ -9,7 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="tag_red">#FF3466</color>
     <color name="grey_reviews">#6D6D80</color>
-    <color name="white_font">#ffffff</color>
+    <color name="white_font">#ECECEC</color>
     <color name="back_font">#7E7C88</color>
-    <color name="movies_detail_main">#191926</color>
+    <color name="movies_main">#191926</color>
 </resources>
